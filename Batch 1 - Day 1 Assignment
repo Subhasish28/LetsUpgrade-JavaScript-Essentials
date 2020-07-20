@@ -1,0 +1,131 @@
+Day 1 Assignment:-
+
+Question 1: Explore and explain the various methods in console function in javascript
+
+console.assert() - Writes an error message to the console if the assertion is false
+console.clear() - Clears the console
+console.count() - Logs the number of times that this particular call to count() has been called
+console.error() - Outputs an error message to the console
+console.info() - Outputs an informational message to the console
+console.log() - Outputs a message to the console
+console.table() - Displays tabular data as a table
+console.time() - Starts a timer (can track how long an operation takes)
+console.warn() - Outputs a warning message to the console
+
+Question 2: Write the difference between var, let and const with code examples
+
+var
+Before ES6 (ES2015) few years ago, there was only one way to declare variables and constants in JavaScript, which was using var.
+
+Function Scope
+To understand var, we need to first learn how they are scoped. Let’s look at a simple example below to learn more about it.
+
+function begin () {
+ for (var i=0; i<5; i++) {
+  console.log(i) 
+ }
+// i is accessible outside the for loop
+ console.log(i)
+}
+Now, in our code snippet above, we have a variable i that is declared inside the for loop. The console output that you will see for this code is shown below.
+
+0
+1
+2
+3
+4
+5
+What is strange here is that, although the variable i is declared inside the for-loop, it is still accessible outside the scope of the for-loop. This is because the var variables are accessible within the scope of the function that they are declared.
+
+In our example, the variable i is accessible anywhere within the function begin(). This is a behaviour that is unique to the JavaScript var keyword. In many other languages, the expected behaviour, would be that the scope of i is limited to the block within which it is declared.
+
+Global Scope
+Now, let’s take a look at another example.
+
+var name = 'Adhithi';
+In this example, I have declared a variable name using var, outside a function. Now, JavaScript treats this as a global variable, and attaches it to the window object. Since there is only one instance of the window object, attaching our global variables to the window object is a bad practice. If you were to use a third-party library that has variables with the same name as your global variables, then you run into the risk of your variables being overridden.
+
+var variables have a function-scope, if they are not declared within a function, they have a global-scope.
+
+Since var does not offer a block-scope, and also attaches itself to the window object, incase of global scope, it leads to several problems and unexpected behaviour of your application.
+
+After ES6/ES2015, JavaScript introduced let and const as newer alternatives to overcome the problems faced with var. Let’s dive into those next.
+
+let
+Typically, we want our variables to be scoped within a block of code. If we declare a variable within a block of code say a for-loop, we want it to live within that block and be inaccessible outside of it. This behavior can be achieved in JavaScript using the let keyword.
+
+Let’s go back to our previous example, and replace the var with let instead.
+
+function begin () {
+ for (let i=0; i<5; i++) {
+  console.log(i) 
+ }
+// i is not defined and will return an error
+ console.log(i)
+}
+The output that we see for this example after replacing it with let will be slightly different than the previous example.
+
+0
+1
+2
+3
+4
+Uncaught reference error: i is not defined
+The console log that happens outside the for-loop block returns an error. It does not know what i is, and returns that i is not defined. This is a desirable output that we get with the use of let instead of var.
+
+let is block-scoped and variables declared within a block of code cannot be accessed outside of it.
+
+Now that we know the major differences between var and let, we can explore the next keyword const.
+
+const
+const is another addition in the ES6 JavaScript standards. It is similar to let, where it also adheres to the block-scope. The difference between const and let can be understood with a simple example below.
+
+const name = 'Adhithi';
+let age = 25;
+// can reassign age
+age = 27;
+In the example above, I have assigned a name using const and an age using let. You can notice here that I can assign another value to age and it will work just fine.
+
+In the same example, I cannot assign another value to the const name.
+
+const name = 'Adhithi';
+let age = 25;
+age = 27;
+// cannot re-assign name. will throw error
+name = 'Adhithi Ravichandran';
+This example above will throw an error when name is :TypeError: Assignment to constant variable.
+
+The takeaway here is that, const  does not allow you to re-assign values to a constant variable. Whereas, let allows you to re-assign values to variables that already have a value (example above: age).
+
+Let’s take a look at how const objects work in JavaScript.
+
+const user = {"name": "Adhithi", "age": 10}
+//Can manipulate object properties
+user.name = "Josh";
+
+//Cannot re-assign the entire object
+user = {"name": "Josh", "age": "12"}  //Uncaught TypeError: Assignment to constant variable
+In this example, we can manipulate the properties of an Object. We can change the name and age properties of the user Object although the user Object is a const.
+
+But, we cannot re-assign the entire Object. The idea is that in case of const Objects, the individual properties of the Object can be modified/re-assigned but the Object itself cannot be changed entirely.
+
+Question 3: Write a brief intro on available data types in Javascript.
+
+Data Types in JavaScript
+Data types basically specify what kind of data can be stored and manipulated within a program.
+
+There are six basic data types in JavaScript which can be divided into three main categories: primitive (or primary), composite (or reference), and special data types. String, Number, and Boolean are primitive data types. Object, Array, and Function (which are all types of objects) are composite data types. Whereas Undefined and Null are special data types.
+
+Primitive data types can hold only one value at a time, whereas composite data types can hold collections of values and more complex entities. Let's discuss each one of them in detail.
+
+The String Data Type: The string data type is used to represent textual data (i.e. sequences of characters). Strings are created using single or double quotes surrounding one or more characters.
+
+The Number Data Type: The number data type is used to represent positive or negative numbers with or without decimal place, or numbers written using exponential notation e.g. 1.5e-4 (equivalent to 1.5x10-4).
+
+The Boolean Data Type: The Boolean data type can hold only two values: true or false. It is typically used to store values like yes (true) or no (false), on (true) or off (false), etc.
+
+The Undefined Data Type: The undefined data type can only have one value-the special value undefined. If a variable has been declared, but has not been assigned a value, has the value undefined.
+
+The Null Data Type: This is another special data type that can have only one value-the null value. A null value means that there is no value. It is not equivalent to an empty string ("") or 0, it is simply nothing.
+
+The Object Data Type: The object is a complex data type that allows you to store collections of data. An object contains properties, defined as a key-value pair. A property key (name) is always a string, but the value can be any data type, like strings, numbers, booleans, or complex data types like arrays, function and other objects. You'll learn more about objects in upcoming chapters.
