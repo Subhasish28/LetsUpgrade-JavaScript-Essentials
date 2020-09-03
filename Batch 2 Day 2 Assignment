@@ -1,0 +1,45 @@
+//Question 1 : Program to search for a particular character in a string
+
+let str = "Mozambique";
+console.log(str);
+console.log(str.indexOf("b"));
+
+Output : 5
+
+//Question 2 : Program to convert minutes to seconds
+
+let minutes = 15;
+seconds = minutes * 60;
+console.log("15 " + " Min " + " into sec is " + seconds);
+
+Output : 15  Min  into sec is 900
+
+//Question 3 : Program to search for an element in a array of strings
+
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+var a = fruits.indexOf("Apple");
+console.log(a);
+
+Output : 2
+
+//Question 4 : Program to display only elements containing 'a' in them from an array
+
+const items = ['item', 'apple', 'extra', 'mouse'];
+const matches = items.filter(s => s.includes('a'));
+var matches = _.filter(
+    ['item', 'apple', 'extra', 'mouse'],
+    function( s ) { return s.indexOf( 'a' ) !== -1; }
+);
+
+Output : apple
+
+//Question 5 : Print an array in reverse order
+
+Array = ["Animal","Fruits","Vegetables"];
+console.log(Array);
+Array = ["Animal","Fruits","Vegetables"].reverse();
+console.log(Array);
+
+Output : 
+["Animal", "Fruits", "Vegetables"]
+["Vegetables", "Fruits", "Animal"]
